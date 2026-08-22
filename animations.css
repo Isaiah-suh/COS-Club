@@ -1,0 +1,60 @@
+.shape1 {
+    animation: toptextanim 2.5s ease;
+}
+
+.shape2 {
+    animation: bottomtextanim 2.5s ease;
+}
+
+.shape3 {
+    animation: toptextanim 2s ease;
+}
+
+.shape4 {
+    animation: bottomtextanim 2s ease;
+}
+
+.backgroundText .toptext {
+    animation: toptextanim 2.5s ease;
+}
+
+@keyframes toptextanim {
+    0% {
+        transform: translateX(-700px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.backgroundText .bottomtext {
+    animation: bottomtextanim 2.5s ease;
+}
+
+@keyframes bottomtextanim {
+    0% {
+        transform: translateX(700px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.firstClickAnim {
+    animation: firstClickAnim 2s ease;
+}
+
+@keyframes firstClickAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(1) translateY(-70px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1) translateY(0);
+        opacity: 1;
+    }
+}
