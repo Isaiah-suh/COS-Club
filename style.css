@@ -2,12 +2,6 @@
     margin: 0;
     padding: 0;
     font-family: 'Poppins' Sans-serif;
-    box-sizing: border-box;
-}
-
-html {
-    width: 100%;
-    overflow-x: hidden;
 }
 
 .shape1 {
@@ -134,7 +128,6 @@ a {
     font-size: 20rem;
     font-weight: bolder;
     z-index: -1;
-    overflow: hidden;
 }
 
 .backgroundText span {
@@ -153,18 +146,4 @@ a {
     position: absolute;
     bottom: -80px;
     right: 0;
-}
-
-@media (max-width: 600px) {
-    .backgroundText {
-        font-size: 9rem;
-    }
-
-    .backgroundText .toptext {
-        top: 0;
-    }
-
-    .backgroundText .bottomtext {
-        bottom: 0;
-    }
 }
