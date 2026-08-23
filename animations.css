@@ -1,21 +1,67 @@
-.shape1 {
-    animation: toptextanim 2.5s ease;
+.backgroundLine {
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
 }
 
-.shape2 {
-    animation: bottomtextanim 2.5s ease;
+.backgroundLine:nth-child(2n) {
+    animation-name: oddBackgroundLineIn;
 }
 
-.shape3 {
-    animation: toptextanim 2s ease;
+.backgroundLine:nth-child(2n + 1) {
+    animation-name: evenBackgroundLineIn;
+    animation-duration: 3s;
 }
 
-.shape4 {
-    animation: bottomtextanim 2s ease;
+@keyframes oddBackgroundLineIn {
+    0% {
+        transform: translate(100%, 100%) rotate(45deg);
+        opacity: 0;
+    }
+    33% {
+        transform: translate(100%, 100%) rotate(45deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0) rotate(45deg);
+        opacity: 0.25;
+    }
+}
+
+@keyframes evenBackgroundLineIn {
+    0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+        opacity: 0;
+    }
+    33% {
+        transform: translate(-100%, -100%) rotate(45deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0) rotate(45deg);
+        opacity: 0.25;
+    }
+}
+
+.backgroundShapes .boxOutline {
+    animation: transparency 4s ease
+}
+
+@keyframes transparency {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 .backgroundText .toptext {
-    animation: toptextanim 2.5s ease;
+    animation: toptextanim 1.5s ease;
 }
 
 @keyframes toptextanim {
@@ -30,12 +76,16 @@
 }
 
 .backgroundText .bottomtext {
-    animation: bottomtextanim 2.5s ease;
+    animation: bottomtextanim 2s ease;
 }
 
 @keyframes bottomtextanim {
     0% {
-        transform: translateX(700px);
+        transform: translateX(-700px);
+        opacity: 0;
+    }
+    15% {
+        transform: translateX(-700px);
         opacity: 0;
     }
     100% {
@@ -44,7 +94,7 @@
     }
 }
 
-.firstClickAnim {
+/* .firstClickAnim {
     animation: firstClickAnim 2s ease;
 }
 
@@ -57,4 +107,4 @@
         transform: translate(-50%, -50%) scale(1) translateY(0);
         opacity: 1;
     }
-}
+} */
