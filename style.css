@@ -12,6 +12,25 @@ body {
     overflow-x: hidden;
 }
 
+.clubOfficers {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    color: black;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 97.5%;
+    height: 30%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    overflow: hidden;
+}
+
 /* .information .clickCount {
     position: absolute;
     top: 45%;
@@ -105,6 +124,7 @@ a {
     border-radius: 5px;
     border: 5px solid Navy;
     z-index: 1;
+    overflow: hidden;
 }
 
 .lineClipper {
