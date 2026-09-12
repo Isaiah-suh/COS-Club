@@ -1,35 +1,130 @@
 .peopleText {
-    animation: peopleTextIn 8s ease infinite;
+    animation: peopleTextIn 3s ease 1 forwards;
+}
+
+.clickedHTMLTitle, .clickedCSSTitle, .clickedJavascriptTitle, .clickedWebsiteTitle {
+    animation: transparency 4s ease 1 forwards;
+}
+
+.clickedBoxOutlineTwo {
+    animation: clickedBoxOutlineTwoAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedBoxOutlineTwoAnimation {
+    0% {
+        box-shadow:
+        inset -30px 0 18px rgba(0, 81, 255, 0),
+        inset 30px 0 18px rgba(255, 85, 0, 0),
+        inset 0 -30px 18px rgba(0, 183, 255, 0),
+        inset 0 30px 18px rgba(255, 234, 0, 0);
+    }
+    100% {
+        box-shadow:
+        inset -30px 0 18px rgba(0, 81, 255, 0.4),
+        inset 30px 0 18px rgba(255, 85, 0, 0.4),
+        inset 0 -30px 18px rgba(0, 183, 255, 0.4),
+        inset 0 30px 18px rgba(255, 234, 0, 0.4);
+    }
+}
+
+.clickedHTMLText {
+    animation: clickedHTMLTextAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedHTMLTextAnimation {
+    0% {
+        transform: translate(-50%, -50%) translateX(-1500px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0);
+        opacity: 1;
+    }
+} 
+
+.clickedCSSText {
+    animation: clickedCSSTextAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedCSSTextAnimation {
+    0% {
+        transform: translate(-50%, -50%) translateX(1500px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+.clickedJavascriptText {
+    animation: clickedJavascriptTextAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedJavascriptTextAnimation {
+    0% {
+        transform: translate(-50%, -50%) translateY(-1500px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.clickedWebsiteText {
+    animation: clickedWebsiteTextAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedWebsiteTextAnimation {
+    0% {
+        transform: translate(-50%, -50%) translateY(1500px);
+    }
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
+}
+
+.clickedLineOne {
+    animation: clickedLineOneAnimation 4s ease 1 forwards;
+}
+
+.clickedLineTwo {
+    animation: clickedLineTwoAnimation 4s ease 1 forwards;
+}
+
+@keyframes clickedLineOneAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotate(29.5deg) scaleX(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(29.5deg) scaleX(1);
+    }
+}
+
+@keyframes clickedLineTwoAnimation {
+    0% {
+        transform: translate(-50%, -50%) rotate(-29.5deg) scaleX(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(-29.5deg) scaleX(1);
+    }
 }
 
 @keyframes peopleTextIn {
-    0% {
+    0%, 25% {
         transform: translateX(1000px);
         opacity: 0;
-    }
-    25% {
-        transform: translateX(1000px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    75% {
-        transform: translateX(0);
-        opacity: 1;
     }
     100% {
-        transform: translateX(1000px);
-        opacity: 0;
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
 .backgroundLine {
-    animation-duration: 8s;
+    animation-duration: 4s;
     animation-timing-function: ease;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
 .backgroundLine:nth-child(2n) {
@@ -38,142 +133,69 @@
 
 .backgroundLine:nth-child(2n + 1) {
     animation-name: evenBackgroundLineIn;
-    animation-duration: 8s;
 }
 
 @keyframes oddBackgroundLineIn {
-    0% {
+    0%, 25% {
         transform: translate(100%, 100%) rotate(45deg);
         opacity: 0;
-    }
-    25% {
-        transform: translate(100%, 100%) rotate(45deg);
-        opacity: 0;
-    }
-    50% {
-        transform: translate(0) rotate(45deg);
-        opacity: 0.25;
-    }
-    75% {
-        transform: translate(0) rotate(45deg);
-        opacity: 0.25;
     }
     100% {
-        transform: translate(100%, 100%) rotate(45deg);
-        opacity: 0;
+        transform: translate(0) rotate(45deg);
+        opacity: 0.25;
     }
 }
 
 @keyframes evenBackgroundLineIn {
-    0% {
+    0%, 25% {
         transform: translate(-100%, -100%) rotate(45deg);
         opacity: 0;
-    }
-    25% {
-        transform: translate(-100%, -100%) rotate(45deg);
-        opacity: 0;
-    }
-    50% {
-        transform: translate(0) rotate(45deg);
-        opacity: 0.25;
-    }
-    75% {
-        transform: translate(0) rotate(45deg);
-        opacity: 0.25;
     }
     100% {
-        transform: translate(-100%, -100%) rotate(45deg);
-        opacity: 0;
+        transform: translate(0) rotate(45deg);
+        opacity: 0.25;
     }
 }
 
 .backgroundShapes .boxOutline {
-    animation: transparency 8s ease infinite;
+    animation: transparency 4s ease 1 forwards;
 }
 
 @keyframes transparency {
-    0% {
+    0%{
         opacity: 0;
-    }
-    25% {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-    75% {
-        opacity: 1;
     }
     100% {
-        opacity: 0;
+        opacity: 1;
     }
 }
 
 .backgroundText .toptext {
-    animation: toptextanim 8s ease infinite;
+    animation: toptextanim 2.5s ease 1 forwards;
 }
 
 @keyframes toptextanim {
-    0% {
+    0%, 25% {
         transform: translateX(-1000px);
         opacity: 0;
-    }
-    25% {
-        transform: translateX(-1000px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    75% {
-        transform: translateX(0);
-        opacity: 1;
     }
     100% {
-        transform: translateX(-1000px);
-        opacity: 0;
+        transform: translateX(0);
+        opacity: 1;
     }
 }
 
 .backgroundText .bottomtext {
-    animation: bottomtextanim 8s ease infinite;
+    animation: bottomtextanim 3s ease 1 forwards;
 }
 
 @keyframes bottomtextanim {
-    0% {
+    0%, 25% {
         transform: translateX(-1000px);
-        opacity: 0;
-    }
-    25% {
-        transform: translateX(-1000px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    75% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-1000px);
-        opacity: 0;
-    }
-}
-
-/* .firstClickAnim {
-    animation: firstClickAnim 2s ease;
-}
-
-@keyframes firstClickAnim {
-    0% {
-        transform: translate(-50%, -50%) scale(1) translateY(-70px);
         opacity: 0;
     }
     100% {
-        transform: translate(-50%, -50%) scale(1) translateY(0);
+        transform: translateX(0);
         opacity: 1;
     }
-} */
+}

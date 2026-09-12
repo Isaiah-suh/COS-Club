@@ -1,26 +1,40 @@
-// const button = document.getElementById('button');
-// const buttonGradient = document.getElementById('button-gradient');
-// let clickCount = document.getElementById('clickCount');
-// let clicksCounted = 0;
-// const timer = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-// button.addEventListener('click', async () => {
-//     button.classList.add('clicking');
-//     buttonGradient.classList.add('clicking');
-//     if (clicksCounted === 0) {
-//         clickCount.classList.add('firstClickAnim');
-//         clickCount.style.opacity = 1;
-//     }
-//     clicksCounted++;
-//     clickCount.innerHTML = "You have clicked the button " + clicksCounted + " times!";
+const button = document.querySelector('.centerButton');
+const lineOne = document.querySelector('.lineOne');
+const lineTwo = document.querySelector('.lineTwo');
+const boxOutlineTwo = document.querySelector('.boxOutlineTwo');
+const htmlTitle = document.querySelector('.htmlTitle');
+const htmlText = document.querySelector('.htmlText');
+const cssTitle = document.querySelector('.cssTitle');
+const cssText = document.querySelector('.cssText');
+const javascriptTitle = document.querySelector('.javascriptTitle');
+const javascriptText = document.querySelector('.javascriptText');
+const websiteTitle = document.querySelector('.websiteTitle');
+const websiteText = document.querySelector('.websiteText');
 
-//     button.style.transform = 'translate(-50%, -50%) scale(1.1)';
-//     buttonGradient.style.transform = 'translate(-50%, -50%) scale(1.1)';
+let hasAnimated = false;
 
-//     await timer(150);
+if (button) {
+    button.addEventListener('click', () => {
+        if (hasAnimated) {
+            return;
+        }
 
-//     button.style.transform = 'translate(-50%, -50%) scale(1.25)';
-//     buttonGradient.style.transform = 'translate(-50%, -50%) scale(1.25)';
+        hasAnimated = true;
+        button.classList.add('clicked');
+        lineOne.classList.add('clickedLineOne');
+        lineTwo.classList.add('clickedLineTwo');
+        htmlTitle.classList.add('clickedHTMLTitle');
+        htmlText.classList.add('clickedHTMLText');
+        cssTitle.classList.add('clickedCSSTitle');
+        cssText.classList.add('clickedCSSText');
+        javascriptTitle.classList.add('clickedJavascriptTitle');
+        javascriptText.classList.add('clickedJavascriptText');
+        websiteTitle.classList.add('clickedWebsiteTitle');
+        websiteText.classList.add('clickedWebsiteText');
+        boxOutlineTwo.classList.add('clickedBoxOutlineTwo');
 
-//     button.classList.remove('clicking');
-//     buttonGradient.classList.remove('clicking');
-// });
+        setTimeout(() => {
+            button.classList.remove('clicked');
+        }, 100);
+    });
+}
