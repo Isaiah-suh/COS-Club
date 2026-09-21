@@ -2,6 +2,64 @@
     animation: peopleTextIn 3s ease 1 forwards;
 }
 
+.clicked {
+    animation: clickedAnimation 0.4s ease 1 forwards;
+}
+
+.menuPanel.infoMenuOpen > *,
+.menuPanel.examplesMenuOpen > *,
+.menuPanel.learnMenuOpen > *,
+.menuPanel.ideasMenuOpen > * {
+    animation: infoMenuElementIn 0.6s ease forwards;
+}
+
+.menuPanel.infoMenuOpen > .COSCLUBINFOTitleLine,
+.menuPanel.examplesMenuOpen > .COSCLUBEXAMPLESTitleLine,
+.menuPanel.learnMenuOpen > .COSCLUBLEARNTitleLine,
+.menuPanel.ideasMenuOpen > .COSCLUBIDEASTitleLine {
+    animation-delay: 0.1s;
+}
+
+.menuPanel.infoMenuOpen > .COSC {
+    animation-delay: 0.2s;
+}
+
+.menuPanel.infoMenuOpen > .COSO {
+    animation-delay: 0.3s;
+}
+
+.menuPanel.infoMenuOpen > .COSS {
+    animation-delay: 0.4s;
+}
+
+.menuPanel.infoMenuOpen > .COSCLUBINFOTextBox,
+.menuPanel.examplesMenuOpen > .COSCLUBEXAMPLESTextBox,
+.menuPanel.learnMenuOpen > .COSCLUBLEARNTextBox,
+.menuPanel.ideasMenuOpen > .COSCLUBIDEASTextBox {
+    animation-delay: 0.5s;
+}
+
+@keyframes infoMenuElementIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes clickedAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
 .clickedHTMLTitle, .clickedCSSTitle, .clickedJavascriptTitle, .clickedWebsiteTitle {
     animation: transparency 4s ease 1 forwards;
 }
@@ -142,7 +200,7 @@
     }
     100% {
         transform: translate(0) rotate(45deg);
-        opacity: 0.25;
+        opacity: 0.3;
     }
 }
 
@@ -153,12 +211,26 @@
     }
     100% {
         transform: translate(0) rotate(45deg);
-        opacity: 0.25;
+        opacity: 0.3;
     }
 }
 
 .backgroundShapes .boxOutline {
-    animation: transparency 4s ease 1 forwards;
+    animation: boxOutlineAnimation 4s ease 1 forwards;
+}
+
+@keyframes boxOutlineAnimation {
+    0%{
+        opacity: 0.5;
+        width: 0;
+    }
+    30% {
+        width: 97.5%;
+    }
+    100% {
+        opacity: 1;
+        width: 97.5%;
+    }
 }
 
 @keyframes transparency {

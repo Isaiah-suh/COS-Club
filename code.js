@@ -1,4 +1,14 @@
-const button = document.querySelector('.centerButton');
+const centerButton = document.querySelector('.centerButton');
+const infoButton = document.querySelector('.infoButton');
+const examplesButton = document.querySelector('.examplesButton');
+const learnButton = document.querySelector('.learnButton');
+const ideasButton = document.querySelector('.ideasButton');
+const infoMenu = document.querySelector('.COSCLUBINFO');
+const examplesMenu = document.querySelector('.COSCLUBEXAMPLES');
+const learnMenu = document.querySelector('.COSCLUBLEARN');
+const ideasMenu = document.querySelector('.COSCLUBIDEAS');
+const menus = [infoMenu, examplesMenu, learnMenu, ideasMenu];
+
 const lineOne = document.querySelector('.lineOne');
 const lineTwo = document.querySelector('.lineTwo');
 const boxOutlineTwo = document.querySelector('.boxOutlineTwo');
@@ -12,15 +22,29 @@ const websiteTitle = document.querySelector('.websiteTitle');
 const websiteText = document.querySelector('.websiteText');
 
 let hasAnimated = false;
+let infoMenuOpen = false;
+let examplesMenuOpen = false;
+let learnMenuOpen = false;
+let ideasMenuOpen = false;
 
-if (button) {
-    button.addEventListener('click', () => {
+function openMenu(menuToOpen, menuClass) {
+    menus.forEach((menu) => {
+        if (menu) {
+            menu.classList.remove('infoMenuOpen', 'examplesMenuOpen', 'learnMenuOpen', 'ideasMenuOpen');
+        }
+    });
+
+    menuToOpen.classList.add(menuClass);
+}
+
+if (centerButton) {
+    centerButton.addEventListener('click', () => {
         if (hasAnimated) {
             return;
         }
 
         hasAnimated = true;
-        button.classList.add('clicked');
+        centerButton.classList.add('clicked');
         lineOne.classList.add('clickedLineOne');
         lineTwo.classList.add('clickedLineTwo');
         htmlTitle.classList.add('clickedHTMLTitle');
@@ -34,7 +58,64 @@ if (button) {
         boxOutlineTwo.classList.add('clickedBoxOutlineTwo');
 
         setTimeout(() => {
-            button.classList.remove('clicked');
-        }, 100);
+            centerButton.classList.remove('clicked');
+        }, 400);
+    });
+}
+
+if (infoButton && infoMenu) {
+    infoButton.addEventListener('click', () => {
+        infoButton.classList.add('clicked');
+        infoMenuOpen = true;
+        examplesMenuOpen = false;
+        learnMenuOpen = false;
+        ideasMenuOpen = false;
+        openMenu(infoMenu, 'infoMenuOpen');
+
+        setTimeout(() => {
+            infoButton.classList.remove('clicked');
+        }, 400);
+    });
+}
+if (examplesButton && examplesMenu) {
+    examplesButton.addEventListener('click', () => {
+        examplesButton.classList.add('clicked');
+        examplesMenuOpen = true;
+        infoMenuOpen = false;
+        learnMenuOpen = false;
+        ideasMenuOpen = false;
+        openMenu(examplesMenu, 'examplesMenuOpen');
+
+        setTimeout(() => {
+            examplesButton.classList.remove('clicked');
+        }, 400);
+    });
+}
+if (learnButton && learnMenu) {
+    learnButton.addEventListener('click', () => {
+        learnButton.classList.add('clicked');
+        infoMenuOpen = false;
+        examplesMenuOpen = false;
+        learnMenuOpen = true;
+        ideasMenuOpen = false;
+        openMenu(learnMenu, 'learnMenuOpen');
+
+        setTimeout(() => {
+            learnButton.classList.remove('clicked');
+        }, 400);
+    });
+}
+if (ideasButton && ideasMenu) {
+    ideasButton.addEventListener('click', () => {
+        ideasButton.classList.add('clicked');
+        infoMenuOpen = false;
+        examplesMenuOpen = false;
+        learnMenuOpen = false;
+        ideasMenuOpen = true;
+        openMenu(ideasMenu, 'ideasMenuOpen');
+
+        setTimeout(() => {
+            ideasButton.classList.remove('clicked');
+        }, 400);
     });
 }

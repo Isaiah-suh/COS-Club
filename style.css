@@ -7,9 +7,15 @@
 body {
     position: relative;
     min-height: 100vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
     color: white;
     overflow-x: hidden;
+}
+
+.header {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .clubOfficers {
@@ -18,7 +24,7 @@ body {
     grid-template-rows: repeat(2, 1fr);
     align-items: center;
     justify-items: center;
-    color: black;
+    color: white;
     position: absolute;
     top: 75%;
     left: 50%;
@@ -29,28 +35,6 @@ body {
     font-weight: bold;
     text-align: center;
     overflow: hidden;
-}
-
-.header {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-.backgroundLine {
-    height: 5px;
-    width: 200%;
-    left: -45%;
-    position: absolute;
-    top: var(--line-position);
-    transform: rotate(45deg);
-    background: rgb(14, 40, 72);
-    opacity: 0.2;
-}
-
-.backgroundLine:nth-of-type(even) {
-    background: rgb(211, 193, 152);
-    opacity: 1;
 }
 
 .backgroundShapes .boxOutline {
@@ -65,6 +49,63 @@ body {
     z-index: -1;
     overflow: hidden;
     background: transparent;
+}
+
+.backgroundText {
+    width: 100%;
+    height: 100vh;
+    font-size: 15rem;
+    font-weight: bolder;
+    z-index: -1;
+}
+
+.backgroundText span {
+    border-radius: 5px;
+    color: transparent;
+}
+
+.backgroundText .toptext {
+    background: linear-gradient(135deg, rgb(211, 193, 152) 40%, rgb(35, 100, 181) 60%);
+    background-clip: text;
+    position: absolute;
+    top: -25px;
+    left: 25px;
+}
+
+.backgroundText .bottomtext {
+    background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
+    background-clip: text;
+    position: absolute;
+    top: 175px;
+    left: 25px;
+}
+
+.lineClipper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 97.5%;
+    height: 97.5%;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: -2;
+}
+
+.backgroundLine {
+    height: 5px;
+    width: 200%;
+    left: -45%;
+    position: absolute;
+    top: var(--line-position);
+    transform: rotate(45deg);
+    background: rgb(31, 90, 160);
+    opacity: 1;
+}
+
+.backgroundLine:nth-of-type(even) {
+    background: rgb(211, 193, 152);
+    opacity: 1;
 }
 
 .boxOutlineTwo {
@@ -84,8 +125,14 @@ body {
     justify-content: center;
 }
 
-.centerButton {
-    padding: 0.9rem 2rem;
+.centerButton,
+.infoButton,
+.examplesButton,
+.learnButton,
+.ideasButton {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 1rem 2rem;
     border: none;
     border-radius: 999px;
     background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
@@ -95,16 +142,65 @@ body {
     cursor: pointer;
     box-shadow: 0 0 0 rgba(34, 0, 255, 0.8);
     transition: box-shadow 0.3s ease, transform 0.2s ease;
-    transform: scale(1);
+    z-index: 10;
 }
 
-.centerButton:hover {
+.centerButton {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.centerButton:hover,
+.infoButton:hover,
+.examplesButton:hover,
+.learnButton:hover,
+.ideasButton:hover {
     box-shadow: 0 0 18px rgba(0, 81, 255, 0.9), 0 0 30px rgba(0, 115, 255, 0.6);
-    transform: translateY(-1px) scale(1);
 }
 
-.centerButton.clicked {
-    transform: scale(0.8);
+.examplesButton {
+    background: linear-gradient(90deg, #353cff 0%, #eb57ff 100%);
+}
+
+.learnButton {
+    background: linear-gradient(90deg, #00a896 0%, #8ac926 100%);
+}
+
+.ideasButton {
+    background: linear-gradient(90deg, #ef476f 0%, #ff9f1c 100%);
+}
+
+.examplesButton:hover {
+    box-shadow: 0 0 18px rgba(53, 60, 255, 0.9), 0 0 30px rgba(235, 87, 255, 0.7);
+}
+
+.learnButton:hover {
+    box-shadow: 0 0 18px rgba(0, 168, 150, 0.9), 0 0 30px rgba(138, 201, 38, 0.7);
+}
+
+.ideasButton:hover {
+    box-shadow: 0 0 18px rgba(239, 71, 111, 0.9), 0 0 30px rgba(255, 159, 28, 0.7);
+}
+
+.cornerLine {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 200%;
+    height: 3px;
+    background: navy;
+    border-radius: 999px;
+    transform-origin: center;
+    z-index: -1;
+}
+
+.lineOne {
+    transform: translate(-50%, -50%) rotate(29.5deg) scaleX(0);
+}
+
+.lineTwo {
+    transform: translate(-50%, -50%) rotate(-29.5deg) scaleX(0);
 }
 
 .htmlTitle {
@@ -126,7 +222,7 @@ body {
     left: 12.5%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(14, 40, 72);
+    color: white;
     font-weight: 1000;
     font-size: 1.75rem;
     width: 17.5%;
@@ -156,10 +252,10 @@ body {
     left: 50%;
     top: 15%;
     transform: translate(-50%, -50%);
-    color: rgb(14, 40, 72);
+    color: white;
     font-weight: 1000;
     font-size: 1.75rem;
-    width: 57.5%;
+    width: 50%;
     text-align: center;
     background: linear-gradient(135deg, #F7DF1E 0%, #ff9500 100%);
     background-clip: text;
@@ -186,7 +282,7 @@ body {
     left: 87.5%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(14, 40, 72);
+    color: white;
     font-weight: 1000;
     font-size: 1.75rem;
     width: 17.5%;
@@ -216,10 +312,10 @@ body {
     left: 50%;
     top: 85%;
     transform: translate(-50%, -50%);
-    color: rgb(14, 40, 72);
+    color: white;
     font-weight: 1000;
     font-size: 1.75rem;
-    width: 57.5%;
+    width: 50%;
     text-align: center;
     background: linear-gradient(135deg, rgba(0, 81, 255, 0.9) 0%, rgba(0, 115, 255, 0.6) 100%);
     background-clip: text;
@@ -227,63 +323,279 @@ body {
     /* color: transparent; */
 }
 
-.cornerLine {
+.MenuButtons {
     position: absolute;
+    top: 250%;
     left: 50%;
-    top: 50%;
-    width: 200%;
-    height: 3px;
-    background: navy;
-    border-radius: 999px;
-    transform-origin: center;
-    z-index: -1;
-}
-
-.lineOne {
-    transform: translate(-50%, -50%) rotate(29.5deg) scaleX(0);
-}
-
-.lineTwo {
-    transform: translate(-50%, -50%) rotate(-29.5deg) scaleX(0);
-}
-
-.lineClipper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 97.5%;
-    height: 97.5%;
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: -2;
-}
-
-.backgroundText {
+    transform: translate(-50%, -50%) scale(1);
     width: 100%;
-    height: 100vh;
-    font-size: 15rem;
-    font-weight: bolder;
-    z-index: -1;
-}
-
-.backgroundText span {
+    height: 97.5%;
+    background: transparent;
     border-radius: 5px;
-    color: transparent;
+    z-index: -10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.backgroundText .toptext {
-    background: linear-gradient(135deg, rgb(211, 193, 152) 40%, rgb(14, 40, 72) 60%);
-    background-clip: text;
+.infoButton {
     position: absolute;
-    top: -25px;
-    left: 25px;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
 
-.backgroundText .bottomtext {
+.examplesButton {
+    position: absolute;
+    top: 10%;
+    left: 25%;
+}
+
+.learnButton {
+    position: absolute;
+    top: 10%;
+    left: 75%;
+}
+
+.ideasButton {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+}
+/* 
+.infoButton:hover,
+.examplesButton:hover,
+.learnButton:hover,
+.ideasButton:hover {
+    transform:  translate(-50%, -50%) translateY(-2.5px);
+} */
+
+
+
+.menuPanel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    width: 101%;
+    height: 97.5%;
+    background: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    border: 5px solid black;
+    z-index: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.menuPanel.infoMenuOpen,
+.menuPanel.examplesMenuOpen,
+.menuPanel.learnMenuOpen,
+.menuPanel.ideasMenuOpen {
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.COSCLUBINFO {
+    border-color: black;
+}
+
+.COSCLUBINFO > .COSCLUBINFOTitle,
+.COSCLUBINFO > .COSCLUBINFOTitleLine,
+.COSCLUBINFO > .COSC,
+.COSCLUBINFO > .COSO,
+.COSCLUBINFO > .COSS,
+.COSCLUBINFO > .COSCLUBINFOTextBox,
+.COSCLUBEXAMPLES > .COSCLUBEXAMPLESTitle,
+.COSCLUBEXAMPLES > .COSCLUBEXAMPLESTitleLine,
+.COSCLUBEXAMPLES > .COSCLUBEXAMPLESTextBox,
+.COSCLUBLEARN > .COSCLUBLEARNTitle,
+.COSCLUBLEARN > .COSCLUBLEARNTitleLine,
+.COSCLUBLEARN > .COSCLUBLEARNTextBox,
+.COSCLUBIDEAS > .COSCLUBIDEASTitle,
+.COSCLUBIDEAS > .COSCLUBIDEASTitleLine,
+.COSCLUBIDEAS > .COSCLUBIDEASTextBox {
+    opacity: 0;
+}
+
+.COSCLUBINFOTitle,
+.COSCLUBEXAMPLESTitle,
+.COSCLUBLEARNTitle,
+.COSCLUBIDEASTitle {
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -50%);
+    color: rgb(14, 40, 72);
+    font-weight: 1000;
+    font-size: 6rem;
     background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
     background-clip: text;
+    color: transparent;
+    opacity: 1;
+}
+
+.COSCLUBEXAMPLESTitle {
+    background: linear-gradient(90deg, #353cff 0%, #eb57ff 100%);
+    background-clip: text;
+}
+
+.COSCLUBLEARNTitle {
+    background: linear-gradient(90deg, #00a896 0%, #8ac926 100%);
+    background-clip: text;
+}
+
+.COSCLUBIDEASTitle {
+    background: linear-gradient(90deg, #ef476f 0%, #ff9f1c 100%);
+    background-clip: text;
+}
+
+.COSCLUBINFOTitleLine,
+.COSCLUBEXAMPLESTitleLine,
+.COSCLUBLEARNTitleLine,
+.COSCLUBIDEASTitleLine {
     position: absolute;
-    top: 175px;
-    left: 25px;
+    left: 50%;
+    top: 17.5%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 5px;
+    background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
+    border-radius: 999px;
+    opacity: 1;
+}
+
+.COSCLUBEXAMPLESTitleLine {
+    background: linear-gradient(90deg, #353cff 0%, #eb57ff 100%);
+}
+
+.COSCLUBLEARNTitleLine {
+    background: linear-gradient(90deg, #00a896 0%, #8ac926 100%);
+}
+
+.COSCLUBIDEASTitleLine {
+    background: linear-gradient(90deg, #ef476f 0%, #ff9f1c 100%);
+}
+
+.COSC,
+.COSO,
+.COSS {
+    position: absolute;
+    left: 5%;
+    top: 17.5%;
+    width: 75%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 10px;
+}
+
+.COSO {
+    top: 40%;
+    left: 10%;
+}
+
+.COSS {
+    top: 62.5%;
+    left: 17.5%;
+}
+
+.COSCLUBINFOC {
+    color: rgb(14, 40, 72);
+    font-weight: 1000;
+    font-size: 13rem;
+    background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
+    background-clip: text;
+    color: transparent;
+    opacity: 1;
+}
+
+.COSCLUBCommunity {
+    color: rgb(0, 153, 255);
+    font-size: 5rem;
+}
+
+.COSCLUBINFOO {
+    color: rgb(14, 40, 72);
+    font-weight: 1000;
+    font-size: 13rem;
+    background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
+    background-clip: text;
+    color: transparent;
+    opacity: 1;
+}
+
+.COSCLUBOriented {
+    color: rgb(0, 153, 255);
+    font-size: 5rem;
+}
+
+.COSCLUBINFOS {
+    color: rgb(14, 40, 72);
+    font-weight: 1000;
+    font-size: 13rem;
+    background: linear-gradient(90deg, Navy 0%, rgb(0, 153, 255));
+    background-clip: text;
+    color: transparent;
+    opacity: 1;
+}
+
+.COSCLUBSoftware {
+    color: rgb(0, 153, 255);
+    font-size: 5rem;
+}
+
+.COSCLUBINFOTextBox {
+    position: absolute;
+    left: 72.5%;
+    top: 57.5%;
+    transform: translate(-50%, -50%);
+    width: 45%;
+    height: 70%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 5px solid Navy;
+    font-size: 2.25rem;
+}
+
+.COSCLUBEXAMPLES,
+.COSCLUBLEARN,
+.COSCLUBIDEAS {
+    border: 5px solid black;
+}
+
+.COSCLUBEXAMPLESTextBox,
+.COSCLUBLEARNTextBox,
+.COSCLUBIDEASTextBox {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    padding: 30px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.8);
+    border: 5px solid Navy;
+    border-radius: 40px;
+    color: white;
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+.COSCLUBEXAMPLESTextBox {
+    border: 5px solid #6835ff;
+}
+
+.COSCLUBLEARNTextBox {
+    border: 5px solid #00a851;
+}
+
+.COSCLUBIDEASTextBox {
+    border: 5px solid #ef476f;
 }
